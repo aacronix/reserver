@@ -5,22 +5,20 @@
  * Date: 7/5/2017
  * Time: 7:17 AM
  */
+
 namespace CMS;
+include_once(dirname(__FILE__) . '/../system/DatabaseAccessData.php');
+
+use DatabaseAccessData;
 
 class WordPressCMS
 {
     public function GetData()
     {
-        global $dbLogin, $dbHost, $dbPassword, $dbName;
-
         $file = $_SERVER['DOCUMENT_ROOT'] . '/wp-config.php';
         if ($dbconn = file_exists($file)) {
             @include($file);
-            echo 'the file is mine';
-            $dbLogin = DB_USER;
-            $dbHost = DB_HOST;
-            $dbPassword = DB_PASSWORD;
-            $dbName = DB_NAME;
+            return new DatabaseAccessData(DB_USER, DB_HOST, DB_PASSWORD, DB_NAME);
         } else {
             echo 'oh sorry';
         }

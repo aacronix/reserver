@@ -5,22 +5,20 @@
  * Date: 7/5/2017
  * Time: 7:22 AM
  */
+
 namespace CMS;
+include_once(dirname(__FILE__) . '/../system/DatabaseAccessData.php');
+
+use DatabaseAccessData;
 
 class HostCms6CMS
 {
     public function GetData()
     {
-        global $dbLogin, $dbHost, $dbPassword, $dbName;
-
         $file = $_SERVER['DOCUMENT_ROOT'] . '/modules/core/config/database.php';
         if ($dbconn = file_exists($file)) {
             $data = @include($file);
-            echo 'the file is mine';
-            $dbLogin = $data['default']['username'];
-            $dbHost = $data['default']['host'];
-            $dbPassword = $data['default']['password'];
-            $dbName = $data['default']['database'];
+            return new DatabaseAccessData($data['default']['username'], $data['default']['host'], $data['default']['password'], $data['default']['database']);
         } else {
             echo 'oh sorry';
         }

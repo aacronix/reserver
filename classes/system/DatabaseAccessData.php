@@ -26,6 +26,11 @@ class DatabaseAccessData
         if (isset($this->$attr))
             return $this->$attr;
         else
-            user_error("Атрибут ".$attr." не найден!");
+            user_error("Атрибут " . $attr . " не найден!");
+    }
+
+    public function GetMySqlUrl()
+    {
+        return 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
     }
 }

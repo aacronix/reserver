@@ -2,6 +2,8 @@
 
 namespace cust\dirZip;
 
+include_once(dirname(__FILE__) . '/../../../core/defines.php');
+
 use ZipArchive;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
