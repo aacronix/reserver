@@ -33,4 +33,8 @@ class DatabaseAccessData
     {
         return 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
     }
+
+    public function ToArray(){
+        return get_object_vars($this);
+    }
 }

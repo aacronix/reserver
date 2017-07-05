@@ -1,6 +1,6 @@
 <?php
 
-namespace Utility\Utility;
+namespace Utility;
 
 class Utility
 {
